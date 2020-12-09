@@ -1,0 +1,234 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"25 ssd.c
+[; ;ssd.c: 25: static const char valor[] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F};
+[v _valor `Cuc ~T0 @X0 -> 10 `i s ]
+[i _valor
+:U ..
+-> -> 63 `i `uc
+-> -> 6 `i `uc
+-> -> 91 `i `uc
+-> -> 79 `i `uc
+-> -> 102 `i `uc
+-> -> 109 `i `uc
+-> -> 125 `i `uc
+-> -> 7 `i `uc
+-> -> 127 `i `uc
+-> -> 111 `i `uc
+..
+]
+"27
+[; ;ssd.c: 27: static char display;
+[v _display `uc ~T0 @X0 1 s ]
+"29
+[; ;ssd.c: 29: static char v0, v1, v2, v3;
+[v _v0 `uc ~T0 @X0 1 s ]
+[v _v1 `uc ~T0 @X0 1 s ]
+[v _v2 `uc ~T0 @X0 1 s ]
+[v _v3 `uc ~T0 @X0 1 s ]
+"31
+[; ;ssd.c: 31: void ssdDigit(char val, char pos)
+[v _ssdDigit `(v ~T0 @X0 1 ef2`uc`uc ]
+"32
+[; ;ssd.c: 32: {
+{
+[e :U _ssdDigit ]
+"31
+[; ;ssd.c: 31: void ssdDigit(char val, char pos)
+[v _val `uc ~T0 @X0 1 r1 ]
+[v _pos `uc ~T0 @X0 1 r2 ]
+"32
+[; ;ssd.c: 32: {
+[f ]
+"33
+[; ;ssd.c: 33:  if (pos == 0)
+[e $ ! == -> _pos `i -> 0 `i 2  ]
+"34
+[; ;ssd.c: 34:  {
+{
+"35
+[; ;ssd.c: 35:   v0 = val;
+[e = _v0 _val ]
+"36
+[; ;ssd.c: 36:  }
+}
+[e :U 2 ]
+"37
+[; ;ssd.c: 37:  if (pos == 1)
+[e $ ! == -> _pos `i -> 1 `i 3  ]
+"38
+[; ;ssd.c: 38:  {
+{
+"39
+[; ;ssd.c: 39:   v1 = val;
+[e = _v1 _val ]
+"40
+[; ;ssd.c: 40:  }
+}
+[e :U 3 ]
+"41
+[; ;ssd.c: 41:  if (pos == 2)
+[e $ ! == -> _pos `i -> 2 `i 4  ]
+"42
+[; ;ssd.c: 42:  {
+{
+"43
+[; ;ssd.c: 43:   v2 = val;
+[e = _v2 _val ]
+"44
+[; ;ssd.c: 44:  }
+}
+[e :U 4 ]
+"45
+[; ;ssd.c: 45:  if (pos == 3)
+[e $ ! == -> _pos `i -> 3 `i 5  ]
+"46
+[; ;ssd.c: 46:  {
+{
+"47
+[; ;ssd.c: 47:   v3 = val;
+[e = _v3 _val ]
+"48
+[; ;ssd.c: 48:  }
+}
+[e :U 5 ]
+"50
+[; ;ssd.c: 50: }
+[e :UE 1 ]
+}
+"52
+[; ;ssd.c: 52: void ssdUpdate(void)
+[v _ssdUpdate `(v ~T0 @X0 1 ef ]
+"53
+[; ;ssd.c: 53: {
+{
+[e :U _ssdUpdate ]
+[f ]
+"55
+[; ;ssd.c: 55:  (*(volatile __near unsigned char*)0xF80) = 0x00;
+[e = *U -> -> 3968 `i `*VNuc -> -> 0 `i `uc ]
+"56
+[; ;ssd.c: 56:  (*(volatile __near unsigned char*)0xF84) = 0x00;
+[e = *U -> -> 3972 `i `*VNuc -> -> 0 `i `uc ]
+"58
+[; ;ssd.c: 58:  (*(volatile __near unsigned char*)0xF83) = 0x00;
+[e = *U -> -> 3971 `i `*VNuc -> -> 0 `i `uc ]
+"60
+[; ;ssd.c: 60:  switch(display)
+[e $U 8  ]
+"61
+[; ;ssd.c: 61:  {
+{
+"62
+[; ;ssd.c: 62:   case 0:
+[e :U 9 ]
+"63
+[; ;ssd.c: 63:    (*(volatile __near unsigned char*)0xF83) = valor[v0];
+[e = *U -> -> 3971 `i `*VNuc -> *U + &U _valor * -> _v0 `ux -> -> # *U &U _valor `ui `ux `uc ]
+"64
+[; ;ssd.c: 64:    (((*(volatile __near unsigned char*)0xF80)) |= (1<<5));
+[e =| *U -> -> 3968 `i `*VNuc -> << -> 1 `i -> 5 `i `uc ]
+"65
+[; ;ssd.c: 65:    display = 1;
+[e = _display -> -> 1 `i `uc ]
+"66
+[; ;ssd.c: 66:   break;
+[e $U 7  ]
+"68
+[; ;ssd.c: 68:   case 1:
+[e :U 10 ]
+"69
+[; ;ssd.c: 69:    (*(volatile __near unsigned char*)0xF83) = valor[v1];
+[e = *U -> -> 3971 `i `*VNuc -> *U + &U _valor * -> _v1 `ux -> -> # *U &U _valor `ui `ux `uc ]
+"70
+[; ;ssd.c: 70:    (((*(volatile __near unsigned char*)0xF80)) |= (1<<2));
+[e =| *U -> -> 3968 `i `*VNuc -> << -> 1 `i -> 2 `i `uc ]
+"71
+[; ;ssd.c: 71:    display = 2;
+[e = _display -> -> 2 `i `uc ]
+"72
+[; ;ssd.c: 72:   break;
+[e $U 7  ]
+"74
+[; ;ssd.c: 74:   case 2:
+[e :U 11 ]
+"75
+[; ;ssd.c: 75:    (*(volatile __near unsigned char*)0xF83) = valor[v2];
+[e = *U -> -> 3971 `i `*VNuc -> *U + &U _valor * -> _v2 `ux -> -> # *U &U _valor `ui `ux `uc ]
+"76
+[; ;ssd.c: 76:    (((*(volatile __near unsigned char*)0xF84)) |= (1<<0));
+[e =| *U -> -> 3972 `i `*VNuc -> << -> 1 `i -> 0 `i `uc ]
+"77
+[; ;ssd.c: 77:    display = 3;
+[e = _display -> -> 3 `i `uc ]
+"78
+[; ;ssd.c: 78:   break;
+[e $U 7  ]
+"80
+[; ;ssd.c: 80:   case 3:
+[e :U 12 ]
+"81
+[; ;ssd.c: 81:    (*(volatile __near unsigned char*)0xF83) = valor[v3];
+[e = *U -> -> 3971 `i `*VNuc -> *U + &U _valor * -> _v3 `ux -> -> # *U &U _valor `ui `ux `uc ]
+"82
+[; ;ssd.c: 82:    (((*(volatile __near unsigned char*)0xF84)) |= (1<<2));
+[e =| *U -> -> 3972 `i `*VNuc -> << -> 1 `i -> 2 `i `uc ]
+"83
+[; ;ssd.c: 83:    display = 0;
+[e = _display -> -> 0 `i `uc ]
+"84
+[; ;ssd.c: 84:   break;
+[e $U 7  ]
+"86
+[; ;ssd.c: 86:   default:
+[e :U 13 ]
+"87
+[; ;ssd.c: 87:    display = 0;
+[e = _display -> -> 0 `i `uc ]
+"88
+[; ;ssd.c: 88:   break;
+[e $U 7  ]
+"89
+[; ;ssd.c: 89:  }
+}
+[e $U 7  ]
+[e :U 8 ]
+[e [\ -> _display `i , $ -> 0 `i 9
+ , $ -> 1 `i 10
+ , $ -> 2 `i 11
+ , $ -> 3 `i 12
+ 13 ]
+[e :U 7 ]
+"90
+[; ;ssd.c: 90: }
+[e :UE 6 ]
+}
+"93
+[; ;ssd.c: 93: void ssdInit(void)
+[v _ssdInit `(v ~T0 @X0 1 ef ]
+"94
+[; ;ssd.c: 94: {
+{
+[e :U _ssdInit ]
+[f ]
+"96
+[; ;ssd.c: 96:  (((*(volatile __near unsigned char*)0xF92)) &= ~(1<<2));
+[e =& *U -> -> 3986 `i `*VNuc -> ~ << -> 1 `i -> 2 `i `uc ]
+"97
+[; ;ssd.c: 97:  (((*(volatile __near unsigned char*)0xF92)) &= ~(1<<5));
+[e =& *U -> -> 3986 `i `*VNuc -> ~ << -> 1 `i -> 5 `i `uc ]
+"98
+[; ;ssd.c: 98:  (((*(volatile __near unsigned char*)0xF96)) &= ~(1<<0));
+[e =& *U -> -> 3990 `i `*VNuc -> ~ << -> 1 `i -> 0 `i `uc ]
+"99
+[; ;ssd.c: 99:  (((*(volatile __near unsigned char*)0xF96)) &= ~(1<<2));
+[e =& *U -> -> 3990 `i `*VNuc -> ~ << -> 1 `i -> 2 `i `uc ]
+"100
+[; ;ssd.c: 100:  (*(volatile __near unsigned char*)0xFC1) = 0x0E;
+[e = *U -> -> 4033 `i `*VNuc -> -> 14 `i `uc ]
+"101
+[; ;ssd.c: 101:  (*(volatile __near unsigned char*)0xF95) = 0x00;
+[e = *U -> -> 3989 `i `*VNuc -> -> 0 `i `uc ]
+"103
+[; ;ssd.c: 103: }
+[e :UE 14 ]
+}

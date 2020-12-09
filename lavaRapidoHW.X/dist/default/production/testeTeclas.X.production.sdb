@@ -1,0 +1,250 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4520 ]
+[d frameptr 4065 ]
+"7 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\__lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"7 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\llmod.c
+[v ___llmod __llmod `(ul  1 e 4 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"3 C:\Users\Ruan\MPLABXProjects\testeTeclas.X\delay.c
+[v _atraso_ms atraso_ms `(v  1 e 1 0 ]
+"8 C:\Users\Ruan\MPLABXProjects\testeTeclas.X\lavaRapidoHW.c
+[v _inicializa inicializa `(v  1 e 1 0 ]
+"19
+[v _shift shift `(v  1 e 1 0 ]
+"35
+[v _escolherVeiculo escolherVeiculo `(v  1 e 1 0 ]
+"45
+[v _intro intro `(v  1 e 1 0 ]
+"60
+[v _leituraTeclado leituraTeclado `(uc  1 e 1 0 ]
+"67
+[v _tempo tempo `(v  1 e 1 0 ]
+"87
+[v _contagem contagem `(v  1 e 1 0 ]
+"93
+[v _lavando lavando `(v  1 e 1 0 ]
+"136
+[v _lavandoVeiculo lavandoVeiculo `(i  1 e 2 0 ]
+"5 C:\Users\Ruan\MPLABXProjects\testeTeclas.X\lcd.c
+[v _lcd_wr lcd_wr `(v  1 e 1 0 ]
+"9
+[v _lcd_cmd lcd_cmd `(v  1 e 1 0 ]
+"19
+[v _lcd_dat lcd_dat `(v  1 e 1 0 ]
+"29
+[v _lcd_init lcd_init `(v  1 e 1 0 ]
+"47
+[v _lcd_str lcd_str `(v  1 e 1 0 ]
+"3 C:\Users\Ruan\MPLABXProjects\testeTeclas.X\main.c
+[v _main main `(v  1 e 1 0 ]
+"14 C:\Users\Ruan\MPLABXProjects\testeTeclas.X\teclado.c
+[v _tc_tecla tc_tecla `(uc  1 e 1 0 ]
+"3 C:\Users\Ruan\MPLABXProjects\testeTeclas.X\lavaRapidoHW.c
+[v _valores valores `C[10]uc  1 s 10 valores ]
+"4
+[v _contador contador `ul  1 e 4 0 ]
+"5
+[v _i i `uc  1 e 1 0 ]
+"6
+[v _cont cont `i  1 s 2 cont ]
+"25 C:\Users\Ruan\MPLABXProjects\testeTeclas.X\ssd.c
+[v _valor valor `C[10]uc  1 s 10 valor ]
+"27
+[v _display display `uc  1 s 1 display ]
+"29
+[v _v0 v0 `uc  1 s 1 v0 ]
+[v _v1 v1 `uc  1 s 1 v1 ]
+[v _v2 v2 `uc  1 s 1 v2 ]
+[v _v3 v3 `uc  1 s 1 v3 ]
+"10 C:\Users\Ruan\MPLABXProjects\testeTeclas.X\teclado.c
+[v _linha linha `C[4]uc  1 e 4 0 ]
+"3 C:\Users\Ruan\MPLABXProjects\testeTeclas.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"5
+[v main@cont cont `i  1 a 2 43 ]
+"4
+[v main@tmp tmp `uc  1 a 1 45 ]
+"58
+} 0
+"136 C:\Users\Ruan\MPLABXProjects\testeTeclas.X\lavaRapidoHW.c
+[v _lavandoVeiculo lavandoVeiculo `(i  1 e 2 0 ]
+{
+[v lavandoVeiculo@tmp tmp `uc  1 a 1 wreg ]
+[v lavandoVeiculo@tmp tmp `uc  1 a 1 wreg ]
+[v lavandoVeiculo@tmp tmp `uc  1 a 1 42 ]
+"172
+} 0
+"60
+[v _leituraTeclado leituraTeclado `(uc  1 e 1 0 ]
+{
+"61
+[v leituraTeclado@tmp tmp `uc  1 a 1 19 ]
+"66
+} 0
+"14 C:\Users\Ruan\MPLABXProjects\testeTeclas.X\teclado.c
+[v _tc_tecla tc_tecla `(uc  1 e 1 0 ]
+{
+"15
+[v tc_tecla@to to `ui  1 a 2 14 ]
+"16
+[v tc_tecla@i i `uc  1 a 1 18 ]
+"17
+[v tc_tecla@ret ret `uc  1 a 1 17 ]
+"18
+[v tc_tecla@tmp tmp `uc  1 a 1 16 ]
+"14
+[v tc_tecla@timeout timeout `ui  1 p 2 12 ]
+"66
+} 0
+"93 C:\Users\Ruan\MPLABXProjects\testeTeclas.X\lavaRapidoHW.c
+[v _lavando lavando `(v  1 e 1 0 ]
+{
+[v lavando@veiculo veiculo `*.25uc  1 p 2 38 ]
+"135
+} 0
+"67
+[v _tempo tempo `(v  1 e 1 0 ]
+{
+[v tempo@inicio inicio `i  1 p 2 22 ]
+[v tempo@fim fim `i  1 p 2 24 ]
+"86
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"7 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\llmod.c
+[v ___llmod __llmod `(ul  1 e 4 0 ]
+{
+"10
+[v ___llmod@counter counter `uc  1 a 1 21 ]
+"7
+[v ___llmod@dividend dividend `ul  1 p 4 13 ]
+[v ___llmod@divisor divisor `ul  1 p 4 17 ]
+"25
+} 0
+"7 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\__lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+{
+"10
+[v ___lldiv@quotient quotient `ul  1 a 4 8 ]
+"11
+[v ___lldiv@counter counter `uc  1 a 1 12 ]
+"7
+[v ___lldiv@dividend dividend `ul  1 p 4 0 ]
+[v ___lldiv@divisor divisor `ul  1 p 4 4 ]
+"30
+} 0
+"45 C:\Users\Ruan\MPLABXProjects\testeTeclas.X\lavaRapidoHW.c
+[v _intro intro `(v  1 e 1 0 ]
+{
+"59
+} 0
+"8
+[v _inicializa inicializa `(v  1 e 1 0 ]
+{
+"18
+} 0
+"29 C:\Users\Ruan\MPLABXProjects\testeTeclas.X\lcd.c
+[v _lcd_init lcd_init `(v  1 e 1 0 ]
+{
+"45
+} 0
+"35 C:\Users\Ruan\MPLABXProjects\testeTeclas.X\lavaRapidoHW.c
+[v _escolherVeiculo escolherVeiculo `(v  1 e 1 0 ]
+{
+"44
+} 0
+"19
+[v _shift shift `(v  1 e 1 0 ]
+{
+[v shift@t t `i  1 p 2 13 ]
+[v shift@op op `i  1 p 2 15 ]
+"34
+} 0
+"9 C:\Users\Ruan\MPLABXProjects\testeTeclas.X\lcd.c
+[v _lcd_cmd lcd_cmd `(v  1 e 1 0 ]
+{
+[v lcd_cmd@val val `uc  1 a 1 wreg ]
+[v lcd_cmd@val val `uc  1 a 1 wreg ]
+[v lcd_cmd@val val `uc  1 a 1 12 ]
+"17
+} 0
+"47
+[v _lcd_str lcd_str `(v  1 e 1 0 ]
+{
+"48
+[v lcd_str@i i `uc  1 a 1 17 ]
+"47
+[v lcd_str@str str `*.25Cuc  1 p 2 13 ]
+"54
+} 0
+"19
+[v _lcd_dat lcd_dat `(v  1 e 1 0 ]
+{
+[v lcd_dat@val val `uc  1 a 1 wreg ]
+[v lcd_dat@val val `uc  1 a 1 wreg ]
+[v lcd_dat@val val `uc  1 a 1 12 ]
+"27
+} 0
+"5
+[v _lcd_wr lcd_wr `(v  1 e 1 0 ]
+{
+[v lcd_wr@val val `uc  1 a 1 wreg ]
+[v lcd_wr@val val `uc  1 a 1 wreg ]
+[v lcd_wr@val val `uc  1 a 1 0 ]
+"7
+} 0
+"87 C:\Users\Ruan\MPLABXProjects\testeTeclas.X\lavaRapidoHW.c
+[v _contagem contagem `(v  1 e 1 0 ]
+{
+[v contagem@cont cont `i  1 p 2 12 ]
+"92
+} 0
+"3 C:\Users\Ruan\MPLABXProjects\testeTeclas.X\delay.c
+[v _atraso_ms atraso_ms `(v  1 e 1 0 ]
+{
+"5
+[v atraso_ms@i i `VEui  1 a 2 8 ]
+"4
+[v atraso_ms@k k `VEuc  1 a 1 11 ]
+[v atraso_ms@j j `VEuc  1 a 1 10 ]
+"3
+[v atraso_ms@t t `ul  1 p 4 0 ]
+"12
+} 0

@@ -1,0 +1,697 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"14 ./lcd.h
+[; ;./lcd.h: 14: void lcd_init(void);
+[v _lcd_init `(v ~T0 @X0 0 ef ]
+"4 ./delay.h
+[; ;./delay.h: 4: void atraso_ms(unsigned long int t);
+[v _atraso_ms `(v ~T0 @X0 0 ef1`ul ]
+"15 ./lcd.h
+[; ;./lcd.h: 15: void lcd_cmd(unsigned char val);
+[v _lcd_cmd `(v ~T0 @X0 0 ef1`uc ]
+"17
+[; ;./lcd.h: 17: void lcd_str(const char* str);
+[v _lcd_str `(v ~T0 @X0 0 ef1`*Cuc ]
+"8 ./teclado.h
+[; ;./teclado.h: 8:     unsigned char tc_tecla(unsigned int timeout);
+[v _tc_tecla `(uc ~T0 @X0 0 ef1`ui ]
+"38 ./config.h
+[p x OSC=HS ]
+"39
+[p x WDT=OFF ]
+"40
+[p x LVP=OFF ]
+"41
+[p x DEBUG = OFF ]
+"42
+[p x WDTPS = 1 ]
+"3 lavaRapidoHW.c
+[; ;lavaRapidoHW.c: 3: static const char valores[]={0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
+[v _valores `Cuc ~T0 @X0 -> 10 `i s ]
+[i _valores
+:U ..
+-> -> 63 `i `uc
+-> -> 6 `i `uc
+-> -> 91 `i `uc
+-> -> 79 `i `uc
+-> -> 102 `i `uc
+-> -> 109 `i `uc
+-> -> 125 `i `uc
+-> -> 7 `i `uc
+-> -> 127 `i `uc
+-> -> 111 `i `uc
+..
+]
+"4
+[; ;lavaRapidoHW.c: 4: long int unsigned contador=0;
+[v _contador `ul ~T0 @X0 1 e ]
+[i _contador
+-> -> -> 0 `i `l `ul
+]
+"5
+[; ;lavaRapidoHW.c: 5: unsigned char i,j;
+[v _i `uc ~T0 @X0 1 e ]
+[v _j `uc ~T0 @X0 1 e ]
+"6
+[; ;lavaRapidoHW.c: 6: static int cont=0;
+[v _cont `i ~T0 @X0 1 s ]
+[i _cont
+-> 0 `i
+]
+"8
+[; ;lavaRapidoHW.c: 8: void inicializa(){
+[v _inicializa `(v ~T0 @X0 1 ef ]
+{
+[e :U _inicializa ]
+[f ]
+"9
+[; ;lavaRapidoHW.c: 9:     (*(volatile __near unsigned char*)0xFC1) = 0x06;
+[e = *U -> -> 4033 `i `*VNuc -> -> 6 `i `uc ]
+"10
+[; ;lavaRapidoHW.c: 10:     (*(volatile __near unsigned char*)0xF93) = 0x01;
+[e = *U -> -> 3987 `i `*VNuc -> -> 1 `i `uc ]
+"11
+[; ;lavaRapidoHW.c: 11:     (*(volatile __near unsigned char*)0xF95) = 0x00;
+[e = *U -> -> 3989 `i `*VNuc -> -> 0 `i `uc ]
+"12
+[; ;lavaRapidoHW.c: 12:     (*(volatile __near unsigned char*)0xF96) = 0x00;
+[e = *U -> -> 3990 `i `*VNuc -> -> 0 `i `uc ]
+"13
+[; ;lavaRapidoHW.c: 13:     (*(volatile __near unsigned char*)0xF93) = 0xF8;
+[e = *U -> -> 3987 `i `*VNuc -> -> 248 `i `uc ]
+"14
+[; ;lavaRapidoHW.c: 14:     (*(volatile __near unsigned char*)0xF92)=0x00;
+[e = *U -> -> 3986 `i `*VNuc -> -> 0 `i `uc ]
+"15
+[; ;lavaRapidoHW.c: 15:     (*(volatile __near unsigned char*)0xF94)=0x00;
+[e = *U -> -> 3988 `i `*VNuc -> -> 0 `i `uc ]
+"16
+[; ;lavaRapidoHW.c: 16:     (((*(volatile __near unsigned char*)0xF82)) |= (1<<1));
+[e =| *U -> -> 3970 `i `*VNuc -> << -> 1 `i -> 1 `i `uc ]
+"17
+[; ;lavaRapidoHW.c: 17:     lcd_init();
+[e ( _lcd_init ..  ]
+"18
+[; ;lavaRapidoHW.c: 18: }
+[e :UE 1 ]
+}
+"19
+[; ;lavaRapidoHW.c: 19: void shift(int t,int op){
+[v _shift `(v ~T0 @X0 1 ef2`i`i ]
+{
+[e :U _shift ]
+[v _t `i ~T0 @X0 1 r1 ]
+[v _op `i ~T0 @X0 1 r2 ]
+[f ]
+"20
+[; ;lavaRapidoHW.c: 20:     for (i = 0; i < 10; i++) {
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 10 `i 3  ]
+[e $U 4  ]
+[e :U 3 ]
+{
+"21
+[; ;lavaRapidoHW.c: 21:         atraso_ms(t);
+[e ( _atraso_ms (1 -> -> _t `l `ul ]
+"22
+[; ;lavaRapidoHW.c: 22:         lcd_cmd(0x18);
+[e ( _lcd_cmd (1 -> -> 24 `i `uc ]
+"23
+[; ;lavaRapidoHW.c: 23:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 10 `i 3  ]
+[e :U 4 ]
+}
+"24
+[; ;lavaRapidoHW.c: 24:     for (i = 0; i < 20; i++) {
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 20 `i 6  ]
+[e $U 7  ]
+[e :U 6 ]
+{
+"25
+[; ;lavaRapidoHW.c: 25:         atraso_ms(t);
+[e ( _atraso_ms (1 -> -> _t `l `ul ]
+"26
+[; ;lavaRapidoHW.c: 26:         lcd_cmd(0x1C);
+[e ( _lcd_cmd (1 -> -> 28 `i `uc ]
+"27
+[; ;lavaRapidoHW.c: 27:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 20 `i 6  ]
+[e :U 7 ]
+}
+"28
+[; ;lavaRapidoHW.c: 28:     if(op==1) return;
+[e $ ! == _op -> 1 `i 9  ]
+[e $UE 2  ]
+[e :U 9 ]
+"29
+[; ;lavaRapidoHW.c: 29:     for (i = 0; i < 10; i++) {
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 10 `i 10  ]
+[e $U 11  ]
+[e :U 10 ]
+{
+"30
+[; ;lavaRapidoHW.c: 30:         atraso_ms(t);
+[e ( _atraso_ms (1 -> -> _t `l `ul ]
+"31
+[; ;lavaRapidoHW.c: 31:         lcd_cmd(0x18);
+[e ( _lcd_cmd (1 -> -> 24 `i `uc ]
+"32
+[; ;lavaRapidoHW.c: 32:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 10 `i 10  ]
+[e :U 11 ]
+}
+"33
+[; ;lavaRapidoHW.c: 33:     atraso_ms(1000);
+[e ( _atraso_ms (1 -> -> -> 1000 `i `l `ul ]
+"34
+[; ;lavaRapidoHW.c: 34: }
+[e :UE 2 ]
+}
+"35
+[; ;lavaRapidoHW.c: 35: void escolherVeiculo(){
+[v _escolherVeiculo `(v ~T0 @X0 1 ef ]
+{
+[e :U _escolherVeiculo ]
+[f ]
+"36
+[; ;lavaRapidoHW.c: 36:     lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"37
+[; ;lavaRapidoHW.c: 37:     for(i=0;i<5;i++){
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 5 `i 14  ]
+[e $U 15  ]
+[e :U 14 ]
+{
+"38
+[; ;lavaRapidoHW.c: 38:         lcd_cmd(0x80);
+[e ( _lcd_cmd (1 -> -> 128 `i `uc ]
+"39
+[; ;lavaRapidoHW.c: 39:         lcd_str("Escolha seu veiculo");
+[e ( _lcd_str (1 :s 1C ]
+"40
+[; ;lavaRapidoHW.c: 40:         lcd_cmd(0xC0);
+[e ( _lcd_cmd (1 -> -> 192 `i `uc ]
+"41
+[; ;lavaRapidoHW.c: 41:         lcd_str("1-Carro 2-Moto 3-Caminhao");
+[e ( _lcd_str (1 :s 2C ]
+"42
+[; ;lavaRapidoHW.c: 42:         shift(200,0);
+[e ( _shift (2 , -> 200 `i -> 0 `i ]
+"43
+[; ;lavaRapidoHW.c: 43:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 5 `i 14  ]
+[e :U 15 ]
+}
+"44
+[; ;lavaRapidoHW.c: 44: }
+[e :UE 13 ]
+}
+"45
+[; ;lavaRapidoHW.c: 45: void intro(){
+[v _intro `(v ~T0 @X0 1 ef ]
+{
+[e :U _intro ]
+[f ]
+"46
+[; ;lavaRapidoHW.c: 46:     lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"47
+[; ;lavaRapidoHW.c: 47:     lcd_cmd(0x80);
+[e ( _lcd_cmd (1 -> -> 128 `i `uc ]
+"48
+[; ;lavaRapidoHW.c: 48:     lcd_str("Lava Rapido Hot");
+[e ( _lcd_str (1 :s 3C ]
+"49
+[; ;lavaRapidoHW.c: 49:     lcd_cmd(0xC0);
+[e ( _lcd_cmd (1 -> -> 192 `i `uc ]
+"50
+[; ;lavaRapidoHW.c: 50:     lcd_str("     Wheels");
+[e ( _lcd_str (1 :s 4C ]
+"51
+[; ;lavaRapidoHW.c: 51:     shift(50,0);
+[e ( _shift (2 , -> 50 `i -> 0 `i ]
+"53
+[; ;lavaRapidoHW.c: 53:     lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"54
+[; ;lavaRapidoHW.c: 54:     lcd_cmd(0x80);
+[e ( _lcd_cmd (1 -> -> 128 `i `uc ]
+"55
+[; ;lavaRapidoHW.c: 55:     lcd_str("       _/|''|'!_,");
+[e ( _lcd_str (1 :s 5C ]
+"56
+[; ;lavaRapidoHW.c: 56:     lcd_cmd(0xC0);
+[e ( _lcd_cmd (1 -> -> 192 `i `uc ]
+"57
+[; ;lavaRapidoHW.c: 57:     lcd_str("       `-O---=O-'");
+[e ( _lcd_str (1 :s 6C ]
+"58
+[; ;lavaRapidoHW.c: 58:     shift(50,1);
+[e ( _shift (2 , -> 50 `i -> 1 `i ]
+"59
+[; ;lavaRapidoHW.c: 59: }
+[e :UE 17 ]
+}
+"60
+[; ;lavaRapidoHW.c: 60: unsigned char leituraTeclado(){
+[v _leituraTeclado `(uc ~T0 @X0 1 ef ]
+{
+[e :U _leituraTeclado ]
+[f ]
+"61
+[; ;lavaRapidoHW.c: 61:     unsigned char tmp;
+[v _tmp `uc ~T0 @X0 1 a ]
+"62
+[; ;lavaRapidoHW.c: 62:     (*(volatile __near unsigned char*)0xF95) = 0x0F;
+[e = *U -> -> 3989 `i `*VNuc -> -> 15 `i `uc ]
+"63
+[; ;lavaRapidoHW.c: 63:     tmp = tc_tecla(0) + 0x30;
+[e = _tmp -> + -> ( _tc_tecla (1 -> -> 0 `i `ui `i -> 48 `i `uc ]
+"64
+[; ;lavaRapidoHW.c: 64:     (*(volatile __near unsigned char*)0xF95) = 0x00;
+[e = *U -> -> 3989 `i `*VNuc -> -> 0 `i `uc ]
+"65
+[; ;lavaRapidoHW.c: 65:     return tmp;
+[e ) _tmp ]
+[e $UE 18  ]
+"66
+[; ;lavaRapidoHW.c: 66: }
+[e :UE 18 ]
+}
+"67
+[; ;lavaRapidoHW.c: 67: void tempo(int inicio, int fim){
+[v _tempo `(v ~T0 @X0 1 ef2`i`i ]
+{
+[e :U _tempo ]
+[v _inicio `i ~T0 @X0 1 r1 ]
+[v _fim `i ~T0 @X0 1 r2 ]
+[f ]
+"68
+[; ;lavaRapidoHW.c: 68:     (*(volatile __near unsigned char*)0xF83)=0x00;
+[e = *U -> -> 3971 `i `*VNuc -> -> 0 `i `uc ]
+"69
+[; ;lavaRapidoHW.c: 69:     contador=inicio*60;
+[e = _contador -> -> * _inicio -> 60 `i `l `ul ]
+"70
+[; ;lavaRapidoHW.c: 70:     while(1){
+[e :U 21 ]
+{
+"71
+[; ;lavaRapidoHW.c: 71:         for(i=2;i<6;i++){
+{
+[e = _i -> -> 2 `i `uc ]
+[e $ < -> _i `i -> 6 `i 23  ]
+[e $U 24  ]
+[e :U 23 ]
+{
+"72
+[; ;lavaRapidoHW.c: 72:             if(i==2) (*(volatile __near unsigned char*)0xF83)=valores[(contador/60)/10];
+[e $ ! == -> _i `i -> 2 `i 26  ]
+[e = *U -> -> 3971 `i `*VNuc -> *U + &U _valores * -> / / _contador -> -> -> 60 `i `l `ul -> -> -> 10 `i `l `ul `ux -> -> # *U &U _valores `ui `ux `uc ]
+[e :U 26 ]
+"73
+[; ;lavaRapidoHW.c: 73:             if(i==3) (*(volatile __near unsigned char*)0xF83)=valores[(contador/60)%10];
+[e $ ! == -> _i `i -> 3 `i 27  ]
+[e = *U -> -> 3971 `i `*VNuc -> *U + &U _valores * -> % / _contador -> -> -> 60 `i `l `ul -> -> -> 10 `i `l `ul `ux -> -> # *U &U _valores `ui `ux `uc ]
+[e :U 27 ]
+"74
+[; ;lavaRapidoHW.c: 74:             if(i==4) (*(volatile __near unsigned char*)0xF83)=valores[(contador%60)/10];
+[e $ ! == -> _i `i -> 4 `i 28  ]
+[e = *U -> -> 3971 `i `*VNuc -> *U + &U _valores * -> / % _contador -> -> -> 60 `i `l `ul -> -> -> 10 `i `l `ul `ux -> -> # *U &U _valores `ui `ux `uc ]
+[e :U 28 ]
+"75
+[; ;lavaRapidoHW.c: 75:             if(i==5) (*(volatile __near unsigned char*)0xF83)=valores[(contador%60)%10];
+[e $ ! == -> _i `i -> 5 `i 29  ]
+[e = *U -> -> 3971 `i `*VNuc -> *U + &U _valores * -> % % _contador -> -> -> 60 `i `l `ul -> -> -> 10 `i `l `ul `ux -> -> # *U &U _valores `ui `ux `uc ]
+[e :U 29 ]
+"76
+[; ;lavaRapidoHW.c: 76:             (*(volatile __near unsigned char*)0xF80)=0x00;
+[e = *U -> -> 3968 `i `*VNuc -> -> 0 `i `uc ]
+"77
+[; ;lavaRapidoHW.c: 77:             (((*(volatile __near unsigned char*)0xF80)) |= (1<<i));
+[e =| *U -> -> 3968 `i `*VNuc -> << -> 1 `i -> _i `i `uc ]
+"78
+[; ;lavaRapidoHW.c: 78:             atraso_ms(1);
+[e ( _atraso_ms (1 -> -> -> 1 `i `l `ul ]
+"79
+[; ;lavaRapidoHW.c: 79:         }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 6 `i 23  ]
+[e :U 24 ]
+}
+"80
+[; ;lavaRapidoHW.c: 80:         contador--;
+[e -- _contador -> -> -> 1 `i `l `ul ]
+"81
+[; ;lavaRapidoHW.c: 81:         if(contador==fim*60){
+[e $ ! == _contador -> -> * _fim -> 60 `i `l `ul 30  ]
+{
+"82
+[; ;lavaRapidoHW.c: 82:             (*(volatile __near unsigned char*)0xF80)=0x00;
+[e = *U -> -> 3968 `i `*VNuc -> -> 0 `i `uc ]
+"83
+[; ;lavaRapidoHW.c: 83:             break;
+[e $U 22  ]
+"84
+[; ;lavaRapidoHW.c: 84:         }
+}
+[e :U 30 ]
+"85
+[; ;lavaRapidoHW.c: 85:     }
+}
+[e :U 20 ]
+[e $U 21  ]
+[e :U 22 ]
+"86
+[; ;lavaRapidoHW.c: 86: }
+[e :UE 19 ]
+}
+"87
+[; ;lavaRapidoHW.c: 87: void contagem(int cont){
+[v _contagem `(v ~T0 @X0 1 ef1`i ]
+{
+[e :U _contagem ]
+[v _cont `i ~T0 @X0 1 r1 ]
+[f ]
+"88
+[; ;lavaRapidoHW.c: 88:     (*(volatile __near unsigned char*)0xF93)=0x00;
+[e = *U -> -> 3987 `i `*VNuc -> -> 0 `i `uc ]
+"89
+[; ;lavaRapidoHW.c: 89:     (*(volatile __near unsigned char*)0xF81)=0x00;
+[e = *U -> -> 3969 `i `*VNuc -> -> 0 `i `uc ]
+"90
+[; ;lavaRapidoHW.c: 90:     for(i=1;i<=cont;i++) (((*(volatile __near unsigned char*)0xF81)) |= (1<<i));
+{
+[e = _i -> -> 1 `i `uc ]
+[e $U 35  ]
+[e :U 32 ]
+[e =| *U -> -> 3969 `i `*VNuc -> << -> 1 `i -> _i `i `uc ]
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 35 ]
+[e $ <= -> _i `i _cont 32  ]
+[e :U 33 ]
+}
+"91
+[; ;lavaRapidoHW.c: 91:     atraso_ms(600);
+[e ( _atraso_ms (1 -> -> -> 600 `i `l `ul ]
+"92
+[; ;lavaRapidoHW.c: 92: }
+[e :UE 31 ]
+}
+"93
+[; ;lavaRapidoHW.c: 93: void lavando(char veiculo[10]){
+[v _lavando `(v ~T0 @X0 1 ef1`*uc ]
+{
+[e :U _lavando ]
+[v _veiculo `*uc ~T0 @X0 1 r1 ]
+[f ]
+"94
+[; ;lavaRapidoHW.c: 94:     lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"95
+[; ;lavaRapidoHW.c: 95:     lcd_cmd(0x80);
+[e ( _lcd_cmd (1 -> -> 128 `i `uc ]
+"96
+[; ;lavaRapidoHW.c: 96:     lcd_str("   Lavando");
+[e ( _lcd_str (1 :s 7C ]
+"97
+[; ;lavaRapidoHW.c: 97:     lcd_cmd(0xC0);
+[e ( _lcd_cmd (1 -> -> 192 `i `uc ]
+"98
+[; ;lavaRapidoHW.c: 98:     lcd_str("   ");
+[e ( _lcd_str (1 :s 8C ]
+"99
+[; ;lavaRapidoHW.c: 99:     lcd_str(veiculo);
+[e ( _lcd_str (1 -> _veiculo `*Cuc ]
+"100
+[; ;lavaRapidoHW.c: 100:     atraso_ms(1000);
+[e ( _atraso_ms (1 -> -> -> 1000 `i `l `ul ]
+"101
+[; ;lavaRapidoHW.c: 101:     lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"102
+[; ;lavaRapidoHW.c: 102:     lcd_str(" Pre-Lavagem...");
+[e ( _lcd_str (1 :s 9C ]
+"103
+[; ;lavaRapidoHW.c: 103:     tempo(60,45);
+[e ( _tempo (2 , -> 60 `i -> 45 `i ]
+"104
+[; ;lavaRapidoHW.c: 104:     lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"105
+[; ;lavaRapidoHW.c: 105:     lcd_str("  Ensaboando");
+[e ( _lcd_str (1 :s 10C ]
+"106
+[; ;lavaRapidoHW.c: 106:     lcd_cmd(0xC0);
+[e ( _lcd_cmd (1 -> -> 192 `i `uc ]
+"107
+[; ;lavaRapidoHW.c: 107:     lcd_str("   ");
+[e ( _lcd_str (1 :s 11C ]
+"108
+[; ;lavaRapidoHW.c: 108:     lcd_str(veiculo);
+[e ( _lcd_str (1 -> _veiculo `*Cuc ]
+"109
+[; ;lavaRapidoHW.c: 109:     lcd_str("...");
+[e ( _lcd_str (1 :s 12C ]
+"110
+[; ;lavaRapidoHW.c: 110:     atraso_ms(50);
+[e ( _atraso_ms (1 -> -> -> 50 `i `l `ul ]
+"111
+[; ;lavaRapidoHW.c: 111:     tempo(45,30);
+[e ( _tempo (2 , -> 45 `i -> 30 `i ]
+"112
+[; ;lavaRapidoHW.c: 112:     lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"113
+[; ;lavaRapidoHW.c: 113:     lcd_cmd(0x80);
+[e ( _lcd_cmd (1 -> -> 128 `i `uc ]
+"114
+[; ;lavaRapidoHW.c: 114:     lcd_str("  Enxaguando");
+[e ( _lcd_str (1 :s 13C ]
+"115
+[; ;lavaRapidoHW.c: 115:     lcd_cmd(0xC0);
+[e ( _lcd_cmd (1 -> -> 192 `i `uc ]
+"116
+[; ;lavaRapidoHW.c: 116:     lcd_str("   ");
+[e ( _lcd_str (1 :s 14C ]
+"117
+[; ;lavaRapidoHW.c: 117:     lcd_str(veiculo);
+[e ( _lcd_str (1 -> _veiculo `*Cuc ]
+"118
+[; ;lavaRapidoHW.c: 118:     lcd_str("...");
+[e ( _lcd_str (1 :s 15C ]
+"119
+[; ;lavaRapidoHW.c: 119:     atraso_ms(50);
+[e ( _atraso_ms (1 -> -> -> 50 `i `l `ul ]
+"120
+[; ;lavaRapidoHW.c: 120:     tempo(30,15);
+[e ( _tempo (2 , -> 30 `i -> 15 `i ]
+"121
+[; ;lavaRapidoHW.c: 121:     lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"122
+[; ;lavaRapidoHW.c: 122:     lcd_cmd(0x80);
+[e ( _lcd_cmd (1 -> -> 128 `i `uc ]
+"123
+[; ;lavaRapidoHW.c: 123:     lcd_str("   Secando");
+[e ( _lcd_str (1 :s 16C ]
+"124
+[; ;lavaRapidoHW.c: 124:     lcd_cmd(0xC0);
+[e ( _lcd_cmd (1 -> -> 192 `i `uc ]
+"125
+[; ;lavaRapidoHW.c: 125:     lcd_str("   ");
+[e ( _lcd_str (1 :s 17C ]
+"126
+[; ;lavaRapidoHW.c: 126:     lcd_str(veiculo);
+[e ( _lcd_str (1 -> _veiculo `*Cuc ]
+"127
+[; ;lavaRapidoHW.c: 127:     lcd_str("...");
+[e ( _lcd_str (1 :s 18C ]
+"128
+[; ;lavaRapidoHW.c: 128:     (((*(volatile __near unsigned char*)0xF82)) |= (1<<2));
+[e =| *U -> -> 3970 `i `*VNuc -> << -> 1 `i -> 2 `i `uc ]
+"129
+[; ;lavaRapidoHW.c: 129:     atraso_ms(50);
+[e ( _atraso_ms (1 -> -> -> 50 `i `l `ul ]
+"130
+[; ;lavaRapidoHW.c: 130:     tempo(15,0);
+[e ( _tempo (2 , -> 15 `i -> 0 `i ]
+"131
+[; ;lavaRapidoHW.c: 131:     lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"132
+[; ;lavaRapidoHW.c: 132:     lcd_cmd(0x80);
+[e ( _lcd_cmd (1 -> -> 128 `i `uc ]
+"133
+[; ;lavaRapidoHW.c: 133:     (((*(volatile __near unsigned char*)0xF82)) &= ~(1<<2));
+[e =& *U -> -> 3970 `i `*VNuc -> ~ << -> 1 `i -> 2 `i `uc ]
+"134
+[; ;lavaRapidoHW.c: 134:     lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"135
+[; ;lavaRapidoHW.c: 135: }
+[e :UE 36 ]
+}
+"136
+[; ;lavaRapidoHW.c: 136: int lavandoVeiculo(unsigned char tmp){
+[v _lavandoVeiculo `(i ~T0 @X0 1 ef1`uc ]
+{
+[e :U _lavandoVeiculo ]
+[v _tmp `uc ~T0 @X0 1 r1 ]
+[f ]
+"137
+[; ;lavaRapidoHW.c: 137:     (*(volatile __near unsigned char*)0xF82)=0x00;
+[e = *U -> -> 3970 `i `*VNuc -> -> 0 `i `uc ]
+"138
+[; ;lavaRapidoHW.c: 138:     (((*(volatile __near unsigned char*)0xF82)) |= (1<<1));
+[e =| *U -> -> 3970 `i `*VNuc -> << -> 1 `i -> 1 `i `uc ]
+"139
+[; ;lavaRapidoHW.c: 139:     if(tmp=='1'){
+[e $ ! == -> _tmp `ui -> 49 `ui 38  ]
+{
+"140
+[; ;lavaRapidoHW.c: 140:         lavando(" o Carro");
+[e ( _lavando (1 :s 19C ]
+"141
+[; ;lavaRapidoHW.c: 141:     }
+}
+[e :U 38 ]
+"142
+[; ;lavaRapidoHW.c: 142:     if(tmp=='2'){
+[e $ ! == -> _tmp `ui -> 50 `ui 39  ]
+{
+"143
+[; ;lavaRapidoHW.c: 143:         lavando(" a Moto");
+[e ( _lavando (1 :s 20C ]
+"144
+[; ;lavaRapidoHW.c: 144:     }
+}
+[e :U 39 ]
+"145
+[; ;lavaRapidoHW.c: 145:     if(tmp=='3'){
+[e $ ! == -> _tmp `ui -> 51 `ui 40  ]
+{
+"146
+[; ;lavaRapidoHW.c: 146:         lavando(" o Caminhao");
+[e ( _lavando (1 :s 21C ]
+"147
+[; ;lavaRapidoHW.c: 147:     }
+}
+[e :U 40 ]
+"148
+[; ;lavaRapidoHW.c: 148:     cont++;
+[e ++ _cont -> 1 `i ]
+"150
+[; ;lavaRapidoHW.c: 150:     (((*(volatile __near unsigned char*)0xF82)) &= ~(1<<1));
+[e =& *U -> -> 3970 `i `*VNuc -> ~ << -> 1 `i -> 1 `i `uc ]
+"151
+[; ;lavaRapidoHW.c: 151:     lcd_str("   Por favor");
+[e ( _lcd_str (1 :s 22C ]
+"152
+[; ;lavaRapidoHW.c: 152:     lcd_cmd(0xC0);
+[e ( _lcd_cmd (1 -> -> 192 `i `uc ]
+"153
+[; ;lavaRapidoHW.c: 153:     lcd_str("retire seu veiculo");
+[e ( _lcd_str (1 :s 23C ]
+"154
+[; ;lavaRapidoHW.c: 154:     shift(200,0);
+[e ( _shift (2 , -> 200 `i -> 0 `i ]
+"155
+[; ;lavaRapidoHW.c: 155:     (((*(volatile __near unsigned char*)0xF82)) |= (1<<1));
+[e =| *U -> -> 3970 `i `*VNuc -> << -> 1 `i -> 1 `i `uc ]
+"156
+[; ;lavaRapidoHW.c: 156:     lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"157
+[; ;lavaRapidoHW.c: 157:     do{
+[e :U 43 ]
+{
+"158
+[; ;lavaRapidoHW.c: 158:         lcd_str(" Pressione 1 para");
+[e ( _lcd_str (1 :s 24C ]
+"159
+[; ;lavaRapidoHW.c: 159:         lcd_cmd(0xC0);
+[e ( _lcd_cmd (1 -> -> 192 `i `uc ]
+"160
+[; ;lavaRapidoHW.c: 160:         lcd_str("retirar seu veiculo");
+[e ( _lcd_str (1 :s 25C ]
+"161
+[; ;lavaRapidoHW.c: 161:         shift(200,0);
+[e ( _shift (2 , -> 200 `i -> 0 `i ]
+"162
+[; ;lavaRapidoHW.c: 162:         i=leituraTeclado();
+[e = _i ( _leituraTeclado ..  ]
+"163
+[; ;lavaRapidoHW.c: 163:         if(i!='1'){
+[e $ ! != -> _i `ui -> 49 `ui 44  ]
+{
+"164
+[; ;lavaRapidoHW.c: 164:             lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"165
+[; ;lavaRapidoHW.c: 165:             lcd_str("Tecla invalida");
+[e ( _lcd_str (1 :s 26C ]
+"166
+[; ;lavaRapidoHW.c: 166:             atraso_ms(5000);
+[e ( _atraso_ms (1 -> -> -> 5000 `i `l `ul ]
+"167
+[; ;lavaRapidoHW.c: 167:         }
+}
+[e :U 44 ]
+"168
+[; ;lavaRapidoHW.c: 168:         lcd_cmd(0x01);
+[e ( _lcd_cmd (1 -> -> 1 `i `uc ]
+"169
+[; ;lavaRapidoHW.c: 169:     }while(i!='1');
+}
+[e $ != -> _i `ui -> 49 `ui 43  ]
+[e :U 42 ]
+"171
+[; ;lavaRapidoHW.c: 171:     return cont;
+[e ) _cont ]
+[e $UE 37  ]
+"172
+[; ;lavaRapidoHW.c: 172: }
+[e :UE 37 ]
+}
+[a 3C 76 97 118 97 32 82 97 112 105 100 111 32 72 111 116 0 ]
+[a 4C 32 32 32 32 32 87 104 101 101 108 115 0 ]
+[a 22C 32 32 32 80 111 114 32 102 97 118 111 114 0 ]
+[a 20C 32 97 32 77 111 116 111 0 ]
+[a 19C 32 111 32 67 97 114 114 111 0 ]
+[a 25C 114 101 116 105 114 97 114 32 115 101 117 32 118 101 105 99 117 108 111 0 ]
+[a 23C 114 101 116 105 114 101 32 115 101 117 32 118 101 105 99 117 108 111 0 ]
+[a 1C 69 115 99 111 108 104 97 32 115 101 117 32 118 101 105 99 117 108 111 0 ]
+[a 7C 32 32 32 76 97 118 97 110 100 111 0 ]
+[a 13C 32 32 69 110 120 97 103 117 97 110 100 111 0 ]
+[a 10C 32 32 69 110 115 97 98 111 97 110 100 111 0 ]
+[a 16C 32 32 32 83 101 99 97 110 100 111 0 ]
+[a 2C 49 45 67 97 114 114 111 32 50 45 77 111 116 111 32 51 45 67 97 109 105 110 104 97 111 0 ]
+[a 21C 32 111 32 67 97 109 105 110 104 97 111 0 ]
+[a 24C 32 80 114 101 115 115 105 111 110 101 32 49 32 112 97 114 97 0 ]
+[a 26C 84 101 99 108 97 32 105 110 118 97 108 105 100 97 0 ]
+[a 9C 32 80 114 101 45 76 97 118 97 103 101 109 46 46 46 0 ]
+[a 12C 46 46 46 0 ]
+[a 15C 46 46 46 0 ]
+[a 18C 46 46 46 0 ]
+[a 5C 32 32 32 32 32 32 32 95 47 124 39 39 124 39 33 95 44 0 ]
+[a 6C 32 32 32 32 32 32 32 96 45 79 45 45 45 61 79 45 39 0 ]
+[a 8C 32 32 32 0 ]
+[a 11C 32 32 32 0 ]
+[a 14C 32 32 32 0 ]
+[a 17C 32 32 32 0 ]
