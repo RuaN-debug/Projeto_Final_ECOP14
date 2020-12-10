@@ -9,10 +9,10 @@ Link do vídeo explicativo sobre o projeto: https://youtu.be/s8Jx0Vrevhg
 
 Doscentes da disciplina: 
 
-https://www.linkedin.com/in/otavio-gomes/
+Otávio Gomes - https://www.linkedin.com/in/otavio-gomes/
 
-https://www.linkedin.com/in/rmaalmeida/
+Rodrigo Almeida - https://www.linkedin.com/in/rmaalmeida/
 
 Discente: Ruan Marcos Balbino de Alcântara Pereira - 2019014766
 
-Linkedn: 
+Linkedn: www.linkedin.com/in/ruan-marcos-67ab9a190
