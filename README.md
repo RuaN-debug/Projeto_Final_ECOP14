@@ -3,7 +3,7 @@ Projeto final da disciplina de Laboratório de Programação Embarcada (ECOP14),
 
 Os códigos se encontram separados por .h e .c na pasta códigos.
 
-A pasta lavaRapidoHW.X possui o projeto do MPLAB com os códigos e arquivos gerado pelo mesmo.
+A pasta lavaRapidoHW.X possui o projeto do MPLAB com os códigos e arquivos gerados pelo mesmo.
 
 Link do vídeo explicativo sobre o projeto: https://youtu.be/s8Jx0Vrevhg
 
